@@ -1,0 +1,18 @@
+{
+  "name": "notion2map",
+  "version": "1.0.0",
+  "description": "Notion integration to read database content",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "@googlemaps/js-api-loader": "latest",
+    "@notionhq/client": "^2.2.14"
+  }
+}
