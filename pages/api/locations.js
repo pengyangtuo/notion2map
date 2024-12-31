@@ -13,6 +13,7 @@ export default async function handler(req, res) {
   // Assuming you have address or coordinates in your database
   const locations = response.results.map(page => (
     {
+      id: page.id,
     name: page.properties.Name.title[0]?.plain_text,
     place: page.properties.Place.rich_text[0]?.plain_text,
     // or if you have coordinates:
@@ -20,5 +21,10 @@ export default async function handler(req, res) {
     // lng: page.properties.Longitude.number
   }))
 
-  res.status(200).json(locations)
+  const locationsMap = locations.reduce((map, location) => {
+    map[location.id] = location;
+    return map;
+  }, {});
+
+  res.status(200).json(locationsMap)
 } 
